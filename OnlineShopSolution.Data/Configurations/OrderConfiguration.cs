@@ -13,12 +13,12 @@ namespace OnlineShopSolution.Data.Configurations
         {
             builder.ToTable("Orders");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.ShipEmail)
-                .IsUnicode(false)
-                .HasMaxLength(50);
-            builder.Property(x => x.ShipName).IsRequired();
-            builder.Property(x => x.ShipPhoneNumber).IsRequired();
-            builder.Property(x => x.OrderDate).IsRequired();
+            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.OrderDate).HasDefaultValue(DateTime.Now);
+            builder.Property(x => x.ShipEmail).IsRequired().IsUnicode(false).HasMaxLength(50);
+            builder.Property(x => x.ShipAddress).IsRequired().HasMaxLength(200);
+            builder.Property(x => x.ShipName).IsRequired().HasMaxLength(200);
+            builder.Property(x => x.ShipPhoneNumber).IsRequired().HasMaxLength(200);
         }
     }
 }

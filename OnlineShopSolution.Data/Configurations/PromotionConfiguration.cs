@@ -13,8 +13,8 @@ namespace OnlineShopSolution.Data.Configurations
         public void Configure(EntityTypeBuilder<Promotion> builder)
         {
             builder.ToTable("Promotions").HasKey(x => x.Id);
-            builder.Property(x => x.ApplyForAll).HasDefaultValue(false);
-            builder.Property(x => x.Status).HasDefaultValue(Status.Inactive);
+            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Name).IsRequired();
         }
     }
 }
