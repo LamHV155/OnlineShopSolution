@@ -7,3 +7,5 @@
 	- Microsoft.EntityFrameWorkCore.SqlServer
 	- Microsoft.EntityFrameworkCore.Tools
 	- Microsoft.EntityFrameworkCore.Design
+	- Microsoft.Extensions.Configuration.FileExtensions
+	- Microsoft.Extensions.Configuration.Json
