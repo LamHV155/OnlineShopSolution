@@ -10,6 +10,7 @@ namespace OnlineShopSolution.Data.Entities
         public int Id { set; get; }
         public DateTime OrderDate { set; get; }
         public Guid UserId { set; get; }
+        public User User { get; set; }
         public string ShipName { set; get; }
         public string ShipAddress { set; get; }
         public string ShipEmail { set; get; }

@@ -19,7 +19,11 @@ namespace OnlineShopSolution.Data.Configurations
             builder.HasOne(x => x.Product)
                 .WithMany(x => x.Carts)
                 .HasForeignKey(x => x.ProductId);
-            
+
+            builder.HasOne(x => x.User)
+               .WithMany(x => x.Carts)
+               .HasForeignKey(x => x.UserId);
+
         }
     }
 }

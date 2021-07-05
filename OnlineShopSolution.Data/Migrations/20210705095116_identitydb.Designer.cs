@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineShopSolution.Data.EF;
 
 namespace OnlineShopSolution.Data.Migrations
 {
     [DbContext(typeof(OnlineShopDbContext))]
-    partial class OnlineShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210705095116_identitydb")]
+    partial class identitydb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -299,7 +301,7 @@ namespace OnlineShopSolution.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 7, 5, 17, 35, 50, 55, DateTimeKind.Local).AddTicks(580));
+                        .HasDefaultValue(new DateTime(2021, 7, 5, 16, 51, 16, 348, DateTimeKind.Local).AddTicks(4946));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
