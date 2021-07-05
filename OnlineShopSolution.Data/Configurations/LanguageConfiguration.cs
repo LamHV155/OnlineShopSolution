@@ -1,0 +1,18 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using OnlineShopSolution.Data.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace OnlineShopSolution.Data.Configurations
+{
+    public class LanguageConfiguration : IEntityTypeConfiguration<Language>
+    {
+        public void Configure(EntityTypeBuilder<Language> builder)
+        {
+            builder.ToTable("Languages").HasKey(x => x.Id);
+            builder.Property(x => x.IsDefault).HasDefaultValue(false);
+        }
+    }
+}
