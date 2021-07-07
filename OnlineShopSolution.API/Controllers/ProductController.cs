@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OnlineShopSolution.Service.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,17 @@ namespace OnlineShopSolution.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        IPublicProductRepo _publicProductRepo;
+        public ProductController(IPublicProductRepo publicProductRepo)
+        {
+            _publicProductRepo = publicProductRepo;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var products = await _publicProductRepo.GetAll_test();
+            return Ok(products);
+        }
     }
 }

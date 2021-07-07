@@ -16,9 +16,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopSolution.Service"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopSolution.Utilities", "OnlineShopSolution.Utilities\OnlineShopSolution.Utilities.csproj", "{C718EF51-7523-4B4D-AF29-1EFF95B730A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopSolution.Dtos", "OnlineShopSolution.Dtos\OnlineShopSolution.Dtos.csproj", "{60DFED04-9BCA-442D-B3C5-B1F173D949E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopSolution.Dtos", "OnlineShopSolution.Dtos\OnlineShopSolution.Dtos.csproj", "{60DFED04-9BCA-442D-B3C5-B1F173D949E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopSolution.API", "OnlineShopSolution.API\OnlineShopSolution.API.csproj", "{58AF3880-C14A-4251-85D8-B2F14E48A3E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopSolution.API", "OnlineShopSolution.API\OnlineShopSolution.API.csproj", "{58AF3880-C14A-4251-85D8-B2F14E48A3E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9852B789-0063-476D-8D39-4B8AAA0F82D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2890D2E6-149D-4386-B550-EBED7B9DBBB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{1BB2E96C-98A7-4A55-8CB6-76A34EF3F004}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5C04C7F-4836-4D8B-9319-7D5B78BA951D} = {1BB2E96C-98A7-4A55-8CB6-76A34EF3F004}
+		{D6B93814-CA24-4ECC-B7D3-7F04D2BDD3F4} = {2890D2E6-149D-4386-B550-EBED7B9DBBB9}
+		{7EC6F294-1FA0-4072-94E1-070EB011D4A0} = {2890D2E6-149D-4386-B550-EBED7B9DBBB9}
+		{C718EF51-7523-4B4D-AF29-1EFF95B730A2} = {9852B789-0063-476D-8D39-4B8AAA0F82D6}
+		{60DFED04-9BCA-442D-B3C5-B1F173D949E9} = {9852B789-0063-476D-8D39-4B8AAA0F82D6}
+		{58AF3880-C14A-4251-85D8-B2F14E48A3E3} = {1BB2E96C-98A7-4A55-8CB6-76A34EF3F004}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6343E614-1BAB-45DC-B642-071F90BB6BEE}
