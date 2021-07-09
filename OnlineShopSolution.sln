@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2890D2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{1BB2E96C-98A7-4A55-8CB6-76A34EF3F004}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnineShopSolution.AdminApp", "OnineShopSolution.AdminApp\OnineShopSolution.AdminApp.csproj", "{F76F62EA-3B0E-4DA3-8721-F35A4FA41D1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{58AF3880-C14A-4251-85D8-B2F14E48A3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58AF3880-C14A-4251-85D8-B2F14E48A3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58AF3880-C14A-4251-85D8-B2F14E48A3E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F76F62EA-3B0E-4DA3-8721-F35A4FA41D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76F62EA-3B0E-4DA3-8721-F35A4FA41D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76F62EA-3B0E-4DA3-8721-F35A4FA41D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76F62EA-3B0E-4DA3-8721-F35A4FA41D1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{C718EF51-7523-4B4D-AF29-1EFF95B730A2} = {9852B789-0063-476D-8D39-4B8AAA0F82D6}
 		{60DFED04-9BCA-442D-B3C5-B1F173D949E9} = {9852B789-0063-476D-8D39-4B8AAA0F82D6}
 		{58AF3880-C14A-4251-85D8-B2F14E48A3E3} = {1BB2E96C-98A7-4A55-8CB6-76A34EF3F004}
+		{F76F62EA-3B0E-4DA3-8721-F35A4FA41D1D} = {1BB2E96C-98A7-4A55-8CB6-76A34EF3F004}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6343E614-1BAB-45DC-B642-071F90BB6BEE}

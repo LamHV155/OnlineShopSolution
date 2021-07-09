@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OnlineShopSolution.Dtos.Users
 {
-    public class GetLoginDto
+    public class PostLoginDto
     {
         public string UserName { get; set; }
         public string Password { get; set; }

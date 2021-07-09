@@ -23,7 +23,7 @@ namespace OnlineShopSolution.API.Controllers
 
         [HttpPost("authenticate")]
         [AllowAnonymous]
-        public async Task<IActionResult> Authenticate([FromForm] GetLoginDto req)
+        public async Task<IActionResult> Authenticate([FromBody] PostLoginDto req)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -33,12 +33,12 @@ namespace OnlineShopSolution.API.Controllers
             {
                 return BadRequest("Username or password is incorrect.");
             }
-            return Ok(new { token = resultToken });
+            return Ok(resultToken);
         }
 
         [HttpPost("register")]
         [AllowAnonymous]
-        public async Task<IActionResult> Register([FromForm] GetRegisterDto req)
+        public async Task<IActionResult> Register([FromForm] PostRegisterDto req)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
