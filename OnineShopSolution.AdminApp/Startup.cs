@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OnineShopSolution.AdminApp.Services;
+using OnlineShopSolution.AdminApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +35,10 @@ namespace OnineShopSolution.AdminApp
              });
 
             services.AddControllersWithViews();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
             
             services.AddTransient<IUserService, UserService>();
         }
@@ -58,7 +62,7 @@ namespace OnineShopSolution.AdminApp
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

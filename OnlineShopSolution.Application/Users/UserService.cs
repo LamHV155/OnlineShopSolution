@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using OnlineShopSolution.Data.Entities;
+using OnlineShopSolution.Dtos.Common;
 using OnlineShopSolution.Dtos.Users;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +59,38 @@ namespace OnlineShopSolution.Service.Users
                 );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public async Task<PagedResult<GetUserDto>> GetUserPaging(PostUserDto req)
+        {
+            var query = _userManager.Users;
+            if (!string.IsNullOrEmpty(req.Keyword))
+            {
+                query = query.Where(x => x.UserName.Contains(req.Keyword) || x.PhoneNumber.Contains(req.Keyword));
+
+            }
+
+            int totalRow = await query.CountAsync();
+
+            var data = await query.Skip((req.PageIndex - 1) * req.PageSize)
+                .Take(req.PageSize)
+                .Select(x => new GetUserDto
+                {
+                    Id = x.Id,
+                    UserName = x.UserName,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    PhoneNumber = x.PhoneNumber,
+                    Email = x.Email
+
+                }).ToListAsync();
+
+            var pagedResult = new PagedResult<GetUserDto>
+            {
+                TotalRecord = totalRow,
+                Items = data
+            };
+            return pagedResult;
         }
 
         public async Task<bool> Register(PostRegisterDto req)

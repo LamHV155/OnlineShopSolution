@@ -26,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2890D2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{1BB2E96C-98A7-4A55-8CB6-76A34EF3F004}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnineShopSolution.AdminApp", "OnineShopSolution.AdminApp\OnineShopSolution.AdminApp.csproj", "{F76F62EA-3B0E-4DA3-8721-F35A4FA41D1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopSolution.AdminApp", "OnineShopSolution.AdminApp\OnlineShopSolution.AdminApp.csproj", "{F76F62EA-3B0E-4DA3-8721-F35A4FA41D1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,7 +5,7 @@ using System.Text;
 namespace OnlineShopSolution.Dtos.Common
 
 {
-    public class PageRequestBase
+    public class PageRequestBase : RequestBase
     {
         public int PageIndex { get; set; }
         public int PageSize { get; set; }

@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace OnlineShopSolution.API.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -21,6 +23,7 @@ namespace OnlineShopSolution.API.Controllers
             _userService = userService;
         }
 
+   
         [HttpPost("authenticate")]
         [AllowAnonymous]
         public async Task<IActionResult> Authenticate([FromBody] PostLoginDto req)
@@ -36,6 +39,7 @@ namespace OnlineShopSolution.API.Controllers
             return Ok(resultToken);
         }
 
+
         [HttpPost("register")]
         [AllowAnonymous]
         public async Task<IActionResult> Register([FromForm] PostRegisterDto req)
@@ -49,6 +53,13 @@ namespace OnlineShopSolution.API.Controllers
                 return BadRequest("Register is unsuccessful.");
             }
             return Ok();
+        }
+
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery]PostUserDto req)
+        {
+            var users = await _userService.GetUserPaging(req);
+            return Ok(users);
         }
     }
 }

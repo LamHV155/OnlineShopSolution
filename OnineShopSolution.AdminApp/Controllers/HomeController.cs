@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OnineShopSolution.AdminApp.Models;
+using OnlineShopSolution.AdminApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnineShopSolution.AdminApp.Controllers
+namespace OnlineShopSolution.AdminApp.Controllers
 {
     [Authorize]
     public class HomeController : Controller

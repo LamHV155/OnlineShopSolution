@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
-using OnineShopSolution.AdminApp.Services;
+using OnlineShopSolution.AdminApp.Services;
 using OnlineShopSolution.Dtos.Users;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnineShopSolution.AdminApp.Controllers
+namespace OnlineShopSolution.AdminApp.Controllers
 {
     public class UserController : Controller
     {
@@ -26,10 +27,36 @@ namespace OnineShopSolution.AdminApp.Controllers
             _userService = userService;
             _configuration = configuration;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string keyword="v", int pageIndex = 1, int pageSize = 10)
+        {
+            var session = HttpContext.Session.GetString("Token");
+            var req = new PostUserDto
+            {
+                BearerToken = session,
+                Keyword = keyword,
+                PageIndex = pageIndex,
+                PageSize = pageSize
+            };
+            var data = await _userService.GetUserPaging(req);
+            return View(data);
+        }
+
+
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(PostRegisterDto req)
+        {
+            if (ModelState.IsValid) return View(ModelState);
+            var result = await _userService.RegisterUser(req);
+            if (result) return RedirectToAction("Index");
+            return View(req);
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> Login()
@@ -52,6 +79,7 @@ namespace OnineShopSolution.AdminApp.Controllers
                 ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
                 IsPersistent = false
             };
+            HttpContext.Session.SetString("Token", token);
             await HttpContext.SignInAsync(
                         CookieAuthenticationDefaults.AuthenticationScheme,
                         userPrincipal,
@@ -64,6 +92,7 @@ namespace OnineShopSolution.AdminApp.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Remove("Token");
             return RedirectToAction("Login", "User");
         }
 
@@ -84,5 +113,7 @@ namespace OnineShopSolution.AdminApp.Controllers
 
 
         }
+
+    
     }
 }
